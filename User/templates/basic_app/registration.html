@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+{% extends 'basic_app/base.html'%}
+    {%block body_block%}
+        {%if registered%}
+        <h1>THANK YOU FOR REGISTERING</h1>
+        {%else%}
+        <div class='jumbotron' >
+            <h1>Welcome To Registration</h1>
+            <h3>Please Register Below</h3>
+            <form method="POST" enctype="multipart/form-data">
+                {{form.as_p}}
+                {{p_form.as_p}}
+                {%csrf_token%}
+                <input type="submit" value="REGISTER">
+            </form>
+            
+        </div>
+        {%endif%}
+    {%endblock%}
